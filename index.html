@@ -905,76 +905,10 @@ async function submitOrder() {
   document.getElementById('loadingOverlay').classList.add('active');
   document.getElementById('submitBtn').disabled = true;
 
-  // Use a hidden iframe + form POST to avoid CORS issues with Google Apps Script
-  const iframeName = 'hidden_iframe_' + Date.now();
-  const iframe = document.createElement('iframe');
-  iframe.name = iframeName;
-  iframe.style.display = 'none';
-  document.body.appendChild(iframe);
-
-  const form = document.createElement('form');
-  form.method = 'POST';
-  form.action = APPS_SCRIPT_URL;
-  form.target = iframeName;
-  form.style.display = 'none';
-
-  const input = document.createElement('input');
-  input.type = 'hidden';
-  input.name = 'data';
-  input.value = JSON.stringify(orderData);
-  form.appendChild(input);
-  document.body.appendChild(form);
-
-  // Listen for iframe load (Apps Script will redirect to a response URL)
-  let responded = false;
-  iframe.onload = () => {
-    if (responded) return;
-    responded = true;
-    try {
-      // Apps Script will redirect to APPS_SCRIPT_URL?result=...
-      const iframeUrl = iframe.contentWindow.location.href;
-      const urlParams = new URLSearchParams(new URL(iframeUrl).search);
-      const resultStr = urlParams.get('result');
-      if (resultStr) {
-        const data = JSON.parse(decodeURIComponent(resultStr));
-        if (data.success && data.paymentUrl) {
-          document.getElementById('loadingOverlay').classList.remove('active');
-          document.getElementById('formView').style.display = 'none';
-          const ss = document.getElementById('successScreen');
-          ss.classList.add('active');
-          document.getElementById('successTotal').textContent = `€${total.toFixed(2)}`;
-          document.getElementById('payNowLink').href = data.paymentUrl;
-          document.getElementById('successMessage').textContent =
-            `Thank you, ${firstName}! Your order #${data.orderId} has been recorded. Complete your payment to confirm it.`;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          throw new Error(data.error || 'Unknown error');
-        }
-      } else {
-        throw new Error('No result in response');
-      }
-    } catch(err) {
-      document.getElementById('loadingOverlay').classList.remove('active');
-      document.getElementById('submitBtn').disabled = false;
-      showToast('Something went wrong. Please try again.', true);
-      console.error(err);
-    }
-    iframe.remove();
-    form.remove();
-  };
-
-  setTimeout(() => {
-    if (!responded) {
-      responded = true;
-      document.getElementById('loadingOverlay').classList.remove('active');
-      document.getElementById('submitBtn').disabled = false;
-      showToast('Request timed out. Please try again.', true);
-      iframe.remove();
-      form.remove();
-    }
-  }, 20000);
-
-  form.submit();
+  // Encode order data and redirect directly to Apps Script
+  // Apps Script will process and redirect to Revolut payment page
+  const encodedData = encodeURIComponent(JSON.stringify(orderData));
+  window.location.href = APPS_SCRIPT_URL + '?data=' + encodedData;
 }
 
 function showToast(msg, isError = false) {
