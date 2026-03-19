@@ -649,28 +649,36 @@
       </div>
     </div>
 
+    <!-- Pickup Location -->
+    <div class="section">
+      <div class="section-label">Pickup Location</div>
+      <p class="section-hint">Select which Miradar location you'll collect from.</p>
+      <div class="time-slots" style="grid-template-columns: 1fr 1fr;">
+        <button type="button" class="slot-btn location-btn" data-location="Miradar Kolonakiou 38">
+          <span class="slot-date">Nicosia</span>Kolonakiou 38
+        </button>
+        <button type="button" class="slot-btn location-btn" data-location="Miradar Georgiou A' 103">
+          <span class="slot-date">Nicosia</span>Georgiou A' 103
+        </button>
+      </div>
+    </div>
+
     <!-- Pickup Time -->
     <div class="section">
       <div class="section-label">Pickup Slot</div>
-      <p class="section-hint">Select your preferred pickup date and time.</p>
+      <p class="section-hint">Select your preferred time on Friday 11th April.</p>
       <div class="time-slots" id="timeSlots">
-        <button type="button" class="slot-btn" data-slot="Sat 19 Apr · 10:00–12:00">
-          <span class="slot-date">Sat 19 Apr</span>10:00 – 12:00
+        <button type="button" class="slot-btn" data-slot="Fri 11 Apr · 12:00–13:00">
+          <span class="slot-date">Fri 11 Apr</span>12:00 – 13:00
         </button>
-        <button type="button" class="slot-btn" data-slot="Sat 19 Apr · 12:00–14:00">
-          <span class="slot-date">Sat 19 Apr</span>12:00 – 14:00
+        <button type="button" class="slot-btn" data-slot="Fri 11 Apr · 13:00–14:00">
+          <span class="slot-date">Fri 11 Apr</span>13:00 – 14:00
         </button>
-        <button type="button" class="slot-btn" data-slot="Sat 19 Apr · 14:00–16:00">
-          <span class="slot-date">Sat 19 Apr</span>14:00 – 16:00
+        <button type="button" class="slot-btn" data-slot="Fri 11 Apr · 14:00–15:00">
+          <span class="slot-date">Fri 11 Apr</span>14:00 – 15:00
         </button>
-        <button type="button" class="slot-btn" data-slot="Sun 20 Apr · 10:00–12:00">
-          <span class="slot-date">Sun 20 Apr</span>10:00 – 12:00
-        </button>
-        <button type="button" class="slot-btn" data-slot="Sun 20 Apr · 12:00–14:00">
-          <span class="slot-date">Sun 20 Apr</span>12:00 – 14:00
-        </button>
-        <button type="button" class="slot-btn" data-slot="Sun 20 Apr · 14:00–16:00">
-          <span class="slot-date">Sun 20 Apr</span>14:00 – 16:00
+        <button type="button" class="slot-btn" data-slot="Fri 11 Apr · 15:00–16:00">
+          <span class="slot-date">Fri 11 Apr</span>15:00 – 16:00
         </button>
       </div>
     </div>
@@ -742,46 +750,47 @@
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyV8fyFM5r8Zr_p9bPS3BkV4Dl5jJ7WnGqQG61hy02rur8DkzeIck-R8xFmcu7zsZgfkw/exec';
 
 const PRODUCTS = [
-  // Salads
-  { id: 'vinegret',         name: 'Vinegret',                    price: 1.00,  category: 'Salads' },
-  { id: 'olivier_chicken',  name: 'Olivier Chicken',             price: 10.00, category: 'Salads' },
-  { id: 'olivier_prawns',   name: 'Olivier Prawns',              price: 14.00, category: 'Salads' },
-  { id: 'olivier_classic',  name: 'Olivier Classic',             price: 9.00,  category: 'Salads' },
-  { id: 'shuba',            name: 'Shuba Salad',                 price: 9.00,  category: 'Salads' },
-  { id: 'crab_salad',       name: 'Crab Salad',                  price: 12.00, category: 'Salads' },
-  { id: 'mimoza',           name: 'Mimoza Salad',                price: 10.00, category: 'Salads' },
-
-  // Meats
-  { id: 'buzhenina',        name: 'Buzhenina',                   price: 16.00, category: 'Meats & Charcuterie' },
-  { id: 'pork_sausage',     name: 'Pork Sausage',               price: 12.00, category: 'Meats & Charcuterie' },
-  { id: 'chicken_sausage',  name: 'Chicken Sausage',            price: 11.00, category: 'Meats & Charcuterie' },
-  { id: 'baked_pork',       name: 'Baked Pork',                 price: 18.00, category: 'Meats & Charcuterie' },
-
   // Easter Specials
-  { id: 'kulich_800',       name: 'Kulich 800g',                price: 18.00, category: 'Easter Specials' },
-  { id: 'kulich_500',       name: 'Kulich 500g',                price: 13.00, category: 'Easter Specials' },
-  { id: 'paskha_500',       name: 'Paskha 500g',               price: 15.00, category: 'Easter Specials' },
-  { id: 'eggs_5',           name: '5 Painted Eggs',            price: 7.00,  category: 'Easter Specials' },
-  { id: 'dubai_kulich',     name: 'Dubai Kulich 500g',          price: 20.00, category: 'Easter Specials' },
+  { id: 'kulich_800',       name: 'Kulich 800g',                  price: 18.00, category: 'Easter Specials' },
+  { id: 'kulich_500',       name: 'Kulich 500g',                  price: 13.00, category: 'Easter Specials' },
+  { id: 'paskha_500',       name: 'Paskha 500g',                  price: 15.00, category: 'Easter Specials' },
+  { id: 'eggs_5',           name: '5 Painted Eggs',               price: 7.00,  category: 'Easter Specials' },
+  { id: 'dubai_kulich',     name: 'Dubai Kulich 500g',            price: 20.00, category: 'Easter Specials' },
   { id: 'brioche_kulich',   name: 'Brioche Kulich w/ Strawberry', price: 17.00, category: 'Easter Specials' },
 
   // Easter Boxes
-  { id: 'easter_box_1',     name: 'Easter Box 1',               price: 35.00, category: 'Easter Boxes' },
-  { id: 'easter_box_2',     name: 'Easter Box 2',               price: 55.00, category: 'Easter Boxes' },
-  { id: 'easter_box_3',     name: 'Easter Box 3',               price: 80.00, category: 'Easter Boxes' },
+  { id: 'easter_box_1',     name: 'Easter Box 1',                 price: 35.00, category: 'Easter Boxes' },
+  { id: 'easter_box_2',     name: 'Easter Box 2',                 price: 55.00, category: 'Easter Boxes' },
+  { id: 'easter_box_3',     name: 'Easter Box 3',                 price: 80.00, category: 'Easter Boxes' },
+
+  // Salads
+  { id: 'vinegret',         name: 'Vinegret',                     price: 8.00,  category: 'Salads' },
+  { id: 'olivier_chicken',  name: 'Olivier Chicken',              price: 10.00, category: 'Salads' },
+  { id: 'olivier_prawns',   name: 'Olivier Prawns',               price: 14.00, category: 'Salads' },
+  { id: 'olivier_classic',  name: 'Olivier Classic',              price: 9.00,  category: 'Salads' },
+  { id: 'shuba',            name: 'Shuba Salad',                  price: 9.00,  category: 'Salads' },
+  { id: 'crab_salad',       name: 'Crab Salad',                   price: 12.00, category: 'Salads' },
+  { id: 'mimoza',           name: 'Mimoza Salad',                 price: 10.00, category: 'Salads' },
+
+  // Meats
+  { id: 'buzhenina',        name: 'Buzhenina',                    price: 16.00, category: 'Meats & Charcuterie' },
+  { id: 'pork_sausage',     name: 'Pork Sausage',                 price: 12.00, category: 'Meats & Charcuterie' },
+  { id: 'chicken_sausage',  name: 'Chicken Sausage',              price: 11.00, category: 'Meats & Charcuterie' },
+  { id: 'baked_pork',       name: 'Baked Pork',                   price: 18.00, category: 'Meats & Charcuterie' },
 
   // Cakes
-  { id: 'medovik_1kg',      name: 'Medovik 1kg',                price: 22.00, category: 'Cakes' },
-  { id: 'medovik_2kg',      name: 'Medovik 2kg',                price: 40.00, category: 'Cakes' },
-  { id: 'napoleon_1kg',     name: 'Napoleon 1kg',               price: 22.00, category: 'Cakes' },
-  { id: 'napoleon_2kg',     name: 'Napoleon 2kg',               price: 40.00, category: 'Cakes' },
-  { id: 'bento_milk_girl',  name: 'Bento Milk Girl',            price: 25.00, category: 'Cakes' },
+  { id: 'medovik_1kg',      name: 'Medovik 1kg',                  price: 22.00, category: 'Cakes' },
+  { id: 'medovik_2kg',      name: 'Medovik 2kg',                  price: 40.00, category: 'Cakes' },
+  { id: 'napoleon_1kg',     name: 'Napoleon 1kg',                 price: 22.00, category: 'Cakes' },
+  { id: 'napoleon_2kg',     name: 'Napoleon 2kg',                 price: 40.00, category: 'Cakes' },
+  { id: 'bento_milk_girl',  name: 'Bento Milk Girl',              price: 25.00, category: 'Cakes' },
 ];
 
 // State
 const quantities = {};
 PRODUCTS.forEach(p => quantities[p.id] = 0);
 let selectedSlot = '';
+let selectedLocation = '';
 
 // ─────────────────────────────────────────────
 // Render products
@@ -862,9 +871,15 @@ function updateSummary() {
 // ─────────────────────────────────────────────
 document.querySelectorAll('.slot-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    selectedSlot = btn.dataset.slot;
+    if (btn.classList.contains('location-btn')) {
+      document.querySelectorAll('.location-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedLocation = btn.dataset.location;
+    } else {
+      document.querySelectorAll('.slot-btn:not(.location-btn)').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedSlot = btn.dataset.slot;
+    }
   });
 });
 
@@ -881,6 +896,7 @@ async function submitOrder() {
   // Validate
   if (!firstName || !lastName) return showToast('Please enter your name.', true);
   if (!phone) return showToast('Please enter your phone number.', true);
+  if (!selectedLocation) return showToast('Please select a pickup location.', true);
   if (!selectedSlot) return showToast('Please select a pickup time slot.', true);
 
   const items = PRODUCTS.filter(p => quantities[p.id] > 0);
@@ -890,6 +906,7 @@ async function submitOrder() {
 
   const orderData = {
     firstName, lastName, phone, email, notes,
+    pickupLocation: selectedLocation,
     pickupSlot: selectedSlot,
     items: items.map(p => ({
       id: p.id,
@@ -908,8 +925,7 @@ async function submitOrder() {
   // Encode order data and redirect directly to Apps Script
   // Apps Script will process and redirect to Revolut payment page
   const encodedData = encodeURIComponent(JSON.stringify(orderData));
- alert('Redirecting to: ' + APPS_SCRIPT_URL + '?data=' + encodedData.substring(0, 50));
-window.location.href = APPS_SCRIPT_URL + '?data=' + encodedData;
+  window.location.href = APPS_SCRIPT_URL + '?data=' + encodedData;
 }
 
 function showToast(msg, isError = false) {
