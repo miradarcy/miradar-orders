@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miradar — Easter Orders 2025</title>
+<title>Miradar — Easter Orders 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -751,39 +751,39 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyV8fyFM5r8Zr_p
 
 const PRODUCTS = [
   // Easter Specials
-  { id: 'kulich_800',       name: 'Kulich 800g',                  price: 18.00, category: 'Easter Specials' },
-  { id: 'kulich_500',       name: 'Kulich 500g',                  price: 13.00, category: 'Easter Specials' },
-  { id: 'paskha_500',       name: 'Paskha 500g',                  price: 15.00, category: 'Easter Specials' },
-  { id: 'eggs_5',           name: '5 Painted Eggs',               price: 7.00,  category: 'Easter Specials' },
-  { id: 'dubai_kulich',     name: 'Dubai Kulich 500g',            price: 20.00, category: 'Easter Specials' },
-  { id: 'brioche_kulich',   name: 'Brioche Kulich w/ Strawberry', price: 17.00, category: 'Easter Specials' },
+  { id: 'kulich_800',       name: 'Kulich 1kg',                  price: 32.00, category: 'Easter Specials' },
+  { id: 'kulich_500',       name: 'Kulich 600g',                  price: 27.00, category: 'Easter Specials' },
+  { id: 'paskha_500',       name: 'Paskha 400g',                  price: 27.00, category: 'Easter Specials' },
+  { id: 'eggs_5',           name: '5 Painted Eggs',               price: 10.00,  category: 'Easter Specials' },
+  { id: 'dubai_kulich',     name: 'Dubai Kulich 800g',            price: 36.00, category: 'Easter Specials' },
+  { id: 'brioche_kulich',   name: 'Kulich w/ Strawberry Namelaka 800g', price: 36.00, category: 'Easter Specials' },
+  { id: 'chocolate_kulich', name: 'Chocolate Kulich 800g',        price: 36.00, category: 'Easter Specials' },
 
   // Easter Boxes
-  { id: 'easter_box_1',     name: 'Easter Box 1',                 price: 35.00, category: 'Easter Boxes' },
-  { id: 'easter_box_2',     name: 'Easter Box 2',                 price: 55.00, category: 'Easter Boxes' },
-  { id: 'easter_box_3',     name: 'Easter Box 3',                 price: 80.00, category: 'Easter Boxes' },
+  { id: 'easter_box_1',     name: 'Easter Box 1: 600g Kulich, Homemade Sausage, Buzhenina, Eggs',                 price: 75.00, category: 'Easter Boxes' },
+  { id: 'easter_box_2',     name: 'Easter Box 2: 1kg Kulich, Paskha 400g, Baked Pork, Eggs',                 price: 85.00, category: 'Easter Boxes' },
 
   // Salads
-  { id: 'vinegret',         name: 'Vinegret',                     price: 8.00,  category: 'Salads' },
-  { id: 'olivier_chicken',  name: 'Olivier Chicken',              price: 10.00, category: 'Salads' },
-  { id: 'olivier_prawns',   name: 'Olivier Prawns',               price: 14.00, category: 'Salads' },
-  { id: 'olivier_classic',  name: 'Olivier Classic',              price: 9.00,  category: 'Salads' },
-  { id: 'shuba',            name: 'Shuba Salad',                  price: 9.00,  category: 'Salads' },
-  { id: 'crab_salad',       name: 'Crab Salad',                   price: 12.00, category: 'Salads' },
-  { id: 'mimoza',           name: 'Mimoza Salad',                 price: 10.00, category: 'Salads' },
+  { id: 'vinegret',         name: 'Vinegret',                     price: 21.00,  category: 'Salads' },
+  { id: 'olivier_chicken',  name: 'Olivier Chicken',              price: 21.00, category: 'Salads' },
+  { id: 'olivier_prawns',   name: 'Olivier Prawns',               price: 21.00, category: 'Salads' },
+  { id: 'olivier_classic',  name: 'Olivier Classic',              price: 21.00,  category: 'Salads' },
+  { id: 'shuba',            name: 'Shuba Salad',                  price: 21.00,  category: 'Salads' },
+  { id: 'crab_salad',       name: 'Crab Salad',                   price: 60.00, category: 'Salads' },
+  { id: 'mimoza',           name: 'Mimoza Salad',                 price: 35.00, category: 'Salads' },
 
   // Meats
   { id: 'buzhenina',        name: 'Buzhenina',                    price: 16.00, category: 'Meats & Charcuterie' },
-  { id: 'pork_sausage',     name: 'Pork Sausage',                 price: 12.00, category: 'Meats & Charcuterie' },
-  { id: 'chicken_sausage',  name: 'Chicken Sausage',              price: 11.00, category: 'Meats & Charcuterie' },
-  { id: 'baked_pork',       name: 'Baked Pork',                   price: 18.00, category: 'Meats & Charcuterie' },
+  { id: 'pork_sausage',     name: 'Pork Sausage',                 price: 15.00, category: 'Meats & Charcuterie' },
+  { id: 'chicken_sausage',  name: 'Chicken Sausage',              price: 15.00, category: 'Meats & Charcuterie' },
+  { id: 'baked_pork',       name: 'Baked Pork',                   price: 16.00, category: 'Meats & Charcuterie' },
 
   // Cakes
-  { id: 'medovik_1kg',      name: 'Medovik 1kg',                  price: 22.00, category: 'Cakes' },
-  { id: 'medovik_2kg',      name: 'Medovik 2kg',                  price: 40.00, category: 'Cakes' },
-  { id: 'napoleon_1kg',     name: 'Napoleon 1kg',                 price: 22.00, category: 'Cakes' },
-  { id: 'napoleon_2kg',     name: 'Napoleon 2kg',                 price: 40.00, category: 'Cakes' },
-  { id: 'bento_milk_girl',  name: 'Bento Milk Girl',              price: 25.00, category: 'Cakes' },
+  { id: 'medovik_1kg',      name: 'Medovik 1kg',                  price: 30.00, category: 'Cakes' },
+  { id: 'medovik_2kg',      name: 'Medovik 2kg',                  price: 60.00, category: 'Cakes' },
+  { id: 'napoleon_1kg',     name: 'Napoleon 1kg',                 price: 30.00, category: 'Cakes' },
+  { id: 'napoleon_2kg',     name: 'Napoleon 2kg',                 price: 60.00, category: 'Cakes' },
+  { id: 'bento_milk_girl',  name: 'Bento Milk Girl',              price: 30.00, category: 'Cakes' },
 ];
 
 // State
