@@ -908,7 +908,8 @@ async function submitOrder() {
   // Encode order data and redirect directly to Apps Script
   // Apps Script will process and redirect to Revolut payment page
   const encodedData = encodeURIComponent(JSON.stringify(orderData));
-  window.location.href = APPS_SCRIPT_URL + '?data=' + encodedData;
+ alert('Redirecting to: ' + APPS_SCRIPT_URL + '?data=' + encodedData.substring(0, 50));
+window.location.href = APPS_SCRIPT_URL + '?data=' + encodedData;
 }
 
 function showToast(msg, isError = false) {
